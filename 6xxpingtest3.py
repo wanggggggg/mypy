@@ -32,6 +32,7 @@ def pingresulte2file():
     os.system('time /t >> 6XXPING.txt')
     os.system(server_name)
     os.system(oscmd)
+
     os.system('echo --------------- >> 6XXPING.txt')
 
 def checkservererr():
