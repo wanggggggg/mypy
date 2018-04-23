@@ -21,6 +21,8 @@ def createfile():
     file2 = open('6XXPINGREPORT.txt', 'w')
     file2.close()
 
+
+
     # The title infomation to write to file
     os.system('echo 6XX IPMI PING TEST >> 6XXPING.txt')
     os.system('echo --------------- >> 6XXPING.txt')
