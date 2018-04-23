@@ -1,5 +1,8 @@
 #_*_ coding:UTF-8 _*_
-import os,sys,time,json
+import json
+import os
+import sys
+
 '''
 #6XX shandong IPMI ping test
 server_ip = {
