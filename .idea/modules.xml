@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../deeplearningbook-chinese/.idea/deeplearningbook-chinese.iml" filepath="$PROJECT_DIR$/../deeplearningbook-chinese/.idea/deeplearningbook-chinese.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/mypy.iml" filepath="$PROJECT_DIR$/.idea/mypy.iml" />
     </modules>
   </component>
