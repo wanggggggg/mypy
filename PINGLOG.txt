@@ -1,0 +1,15 @@
+6XX IPMI PING TEST 
+--------------- 
+2018/04/25 ÖÜÈý 
+15:01
+NAME:SERVER1 
+
+Pinging 10.0.0.1 with 32 bytes of data:
+Reply from 119.163.108.125: Destination net unreachable.
+Request timed out.
+Request timed out.
+Request timed out.
+
+Ping statistics for 10.0.0.1:
+    Packets: Sent = 4, Received = 1, Lost = 3 (75% loss),
+--------------- 
