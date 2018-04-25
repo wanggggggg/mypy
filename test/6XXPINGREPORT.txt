@@ -1,2 +1,0 @@
-server one/10.85.34.1: Failed 
-server two/10.85.34.2: Failed 
