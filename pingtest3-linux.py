@@ -1,39 +1,41 @@
 #_*_ coding:UTF-8 _*_
-import os,sys,time,json
+import json
+import os
+import sys
+
 '''
 #6XX shandong IPMI ping test
 server_ip = {
-    '10.85.34.1':'server one',
-    '10.85.34.2':'server two',
-    '192.168.0.254':'MY ROUTE'
+    '10.0.0.1':'Server Name 1',
+    '10.0.0.2':'Server Name 2'
 }
 '''
 
 def createfile():
-    if os.path.exists('6XXPING.txt'):
-        os.remove('6XXPING.txt')
-    if os.path.exists('6XXPINGREPORT.txt'):
-        os.remove('6XXPINGREPORT.txt')
+    if os.path.exists('PINGLOG.txt'):
+        os.remove('PINGLOG.txt')
+    if os.path.exists('PINGREPORT.txt'):
+        os.remove('PINGREPORT.txt')
 
-    file1 = open('6XXPING.txt', 'w')
+    file1 = open('PINGLOG.txt', 'w')
     file1.close()
 
-    file2 = open('6XXPINGREPORT.txt', 'w')
+    file2 = open('PINGREPORT.txt', 'w')
     file2.close()
 
     # The title infomation to write to file
-    os.system('echo 6XX IPMI PING TEST >> 6XXPING.txt')
-    os.system('echo --------------- >> 6XXPING.txt')
+    os.system('echo IPMI PING TEST >> PINGLOG.txt')
+    os.system('echo --------------- >> PINGLOG.txt')
 
 def pingresulte2file():
-    oscmd = 'ping ' + str(key) + ' -c 4' + ' >> 6XXPING.txt'
-    server_name = 'echo NAME:' + str(server_ip[key]) + ' >> 6XXPING.txt'
-    os.system('date >> 6XXPING.txt')
-    #os.system('time /t >> 6XXPING.txt')
+    oscmd = 'ping ' + str(key) + ' -c 4' + ' >> PINGLOG.txt'
+    server_name = 'echo NAME:' + str(server_ip[key]) + ' >> PINGLOG.txt'
+    os.system('date >> PINGLOG.txt')
+    # os.system('time /t >> PINGLOG.txt')
     #print(oscmd)
     os.system(server_name)
     os.system(oscmd)
-    os.system('echo --------------- >> 6XXPING.txt')
+    os.system('echo --------------- >> PINGLOG.txt')
 
 def checkservererr():
     s = os.popen('ping ' + str(key) + ' -c 4')
@@ -46,7 +48,7 @@ def checkservererr():
 
     #err_server[3].find('100%') or err_server[3].find('75%') or err_server[3].find('50%') or err_server[3].find('25%')
     if  kword[35:39] == '100%' :
-        err_server = 'echo ' + server_ip[key] + '/' + key + ': Failed >> 6XXPINGREPORT.txt'
+        err_server = 'echo ' + server_ip[key] + '/' + key + ': Failed >> PINGREPORT.txt'
         os.system(err_server)
 
 def showinfo():

@@ -13,31 +13,31 @@ server_ip = {
 '''
 
 def createfile():
-    if os.path.exists('6XXPING.txt'):
-        os.remove('6XXPING.txt')
-    if os.path.exists('6XXPINGREPORT.txt'):
-        os.remove('6XXPINGREPORT.txt')
+    if os.path.exists('PINGLOG.txt'):
+        os.remove('PINGLOG.txt')
+    if os.path.exists('PINGREPORT.txt'):
+        os.remove('PINGREPORT.txt')
 
-    file1 = open('6XXPING.txt', 'w')
+    file1 = open('PINGLOG.txt', 'w')
     file1.close()
 
-    file2 = open('6XXPINGREPORT.txt', 'w')
+    file2 = open('PINGREPORT.txt', 'w')
     file2.close()
 
 
 
     # The title infomation to write to file
-    os.system('echo 6XX IPMI PING TEST >> 6XXPING.txt')
-    os.system('echo --------------- >> 6XXPING.txt')
+    os.system('echo 6XX IPMI PING TEST >> PINGLOG.txt')
+    os.system('echo --------------- >> PINGLOG.txt')
 
 def pingresulte2file():
-    oscmd = 'ping ' + str(key) + ' >> 6XXPING.txt'
-    server_name = 'echo NAME:' + str(server_ip[key]) + ' >> 6XXPING.txt'
-    os.system('date /t >> 6XXPING.txt')
-    os.system('time /t >> 6XXPING.txt')
+    oscmd = 'ping ' + str(key) + ' >> PINGLOG.txt'
+    server_name = 'echo NAME:' + str(server_ip[key]) + ' >> PINGLOG.txt'
+    os.system('date /t >> PINGLOG.txt')
+    os.system('time /t >> PINGLOG.txt')
     os.system(server_name)
     os.system(oscmd)
-    os.system('echo --------------- >> 6XXPING.txt')
+    os.system('echo --------------- >> PINGLOG.txt')
 
 def checkservererr():
     s = os.popen('ping ' + str(key))
@@ -46,7 +46,7 @@ def checkservererr():
 
     for i in err_server:
         if i == 'Request timed out.\n':
-            err_server = 'echo ' + server_ip[key] + '/ * /' + key + ': Failed >> 6XXPINGREPORT.txt'
+            err_server = 'echo ' + server_ip[key] + '/ * /' + key + ': Failed >> PINGREPORT.txt'
             os.system(err_server)
             break
 def showinfo():
